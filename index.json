@@ -1,0 +1,66 @@
+{
+  "schema": "panda-registry-v1",
+  "updatedAt": "2026-08-23T07:56:32Z",
+  "registry": {
+    "name": "Panda Extensions Registry",
+    "url": "https://github.com/ferelking242/panda-extensions",
+    "rawBase": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main",
+    "apiBase": "https://api.github.com/repos/ferelking242/panda-extensions/contents"
+  },
+  "categories": [
+    {
+      "id": "tools",
+      "name": "Tools",
+      "icon": "🔧"
+    },
+    {
+      "id": "themes",
+      "name": "Themes",
+      "icon": "🎨"
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "icon": "💻"
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "icon": "🤖"
+    },
+    {
+      "id": "android",
+      "name": "Android",
+      "icon": "📱"
+    }
+  ],
+  "extensions": [
+    {
+      "id": "dev.panda.device",
+      "name": "Panda Device",
+      "version": "1.0.0",
+      "author": "Ferelking",
+      "description": "|",
+      "icon": {
+        "type": "url",
+        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
+      },
+      "permissions": [
+        "terminal",
+        "network",
+        "storage",
+        "notifications",
+        "clipboard        # ← téléphone : demande runtime",
+        "camera           # ← téléphone : demande runtime"
+      ],
+      "tags": [],
+      "category": "tools",
+      "path": "extensions/dev.panda.device",
+      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
+      "install": {
+        "method": "files"
+      },
+      "featured": false
+    }
+  ]
+}
