@@ -1,6 +1,6 @@
 {
   "schema": "panda-registry-v1",
-  "updatedAt": "2026-08-23T08:14:55Z",
+  "updatedAt": "2026-08-23T18:45:39Z",
   "registry": {
     "name": "Panda Extensions Registry",
     "url": "https://github.com/ferelking242/panda-extensions",
@@ -61,7 +61,15 @@
       "install": {
         "method": "files"
       },
-      "featured": true
+      "featured": true,
+      "publisher": "Ferelking",
+      "extensionDependencies": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "path": "extensions/dev.panda.device"
+        }
+      ]
     }
   ],
   "shards": {
@@ -95,7 +103,15 @@
       "install": {
         "method": "files"
       },
-      "featured": true
+      "featured": true,
+      "publisher": "Ferelking",
+      "extensionDependencies": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "path": "extensions/dev.panda.device"
+        }
+      ]
     }
   ]
 }
