@@ -1,6 +1,6 @@
 {
   "schema": "panda-registry-v1",
-  "updatedAt": "2026-08-23T18:59:02Z",
+  "updatedAt": "2026-08-23T23:26:19Z",
   "registry": {
     "name": "Panda Extensions Registry",
     "url": "https://github.com/ferelking242/panda-extensions",
@@ -34,8 +34,33 @@
       "icon": "📱"
     }
   ],
-  "total": 1,
+  "total": 2,
   "featured": [
+    {
+      "id": "ai.panda.gateway",
+      "name": "Panda AI",
+      "version": "1.0.0",
+      "author": "Ferelking",
+      "description": "|",
+      "icon": {
+        "type": "url",
+        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
+      },
+      "permissions": [
+        "terminal",
+        "network",
+        "storage",
+        "notifications"
+      ],
+      "tags": [],
+      "category": "ai",
+      "path": "extensions/ai.panda.gateway",
+      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
+      "install": {
+        "method": "files"
+      },
+      "featured": true
+    },
     {
       "id": "dev.panda.device",
       "name": "Panda Device",
@@ -61,15 +86,7 @@
       "install": {
         "method": "files"
       },
-      "featured": true,
-      "publisher": "Ferelking",
-      "extensionDependencies": [],
-      "versions": [
-        {
-          "version": "1.0.0",
-          "path": "extensions/dev.panda.device"
-        }
-      ]
+      "featured": true
     }
   ],
   "shards": {
@@ -79,6 +96,31 @@
   },
   "inline": [
     {
+      "id": "ai.panda.gateway",
+      "name": "Panda AI",
+      "version": "1.0.0",
+      "author": "Ferelking",
+      "description": "|",
+      "icon": {
+        "type": "url",
+        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
+      },
+      "permissions": [
+        "terminal",
+        "network",
+        "storage",
+        "notifications"
+      ],
+      "tags": [],
+      "category": "ai",
+      "path": "extensions/ai.panda.gateway",
+      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
+      "install": {
+        "method": "files"
+      },
+      "featured": true
+    },
+    {
       "id": "dev.panda.device",
       "name": "Panda Device",
       "version": "1.0.0",
@@ -103,15 +145,7 @@
       "install": {
         "method": "files"
       },
-      "featured": true,
-      "publisher": "Ferelking",
-      "extensionDependencies": [],
-      "versions": [
-        {
-          "version": "1.0.0",
-          "path": "extensions/dev.panda.device"
-        }
-      ]
+      "featured": true
     }
   ]
 }
