@@ -1,6 +1,6 @@
 {
   "schema": "panda-registry-v1",
-  "updatedAt": "2026-08-23T07:56:32Z",
+  "updatedAt": "2026-08-23T08:14:55Z",
   "registry": {
     "name": "Panda Extensions Registry",
     "url": "https://github.com/ferelking242/panda-extensions",
@@ -34,7 +34,8 @@
       "icon": "📱"
     }
   ],
-  "extensions": [
+  "total": 1,
+  "featured": [
     {
       "id": "dev.panda.device",
       "name": "Panda Device",
@@ -60,7 +61,41 @@
       "install": {
         "method": "files"
       },
-      "featured": false
+      "featured": true
+    }
+  ],
+  "shards": {
+    "size": 500,
+    "count": 0,
+    "pages": []
+  },
+  "inline": [
+    {
+      "id": "dev.panda.device",
+      "name": "Panda Device",
+      "version": "1.0.0",
+      "author": "Ferelking",
+      "description": "|",
+      "icon": {
+        "type": "url",
+        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
+      },
+      "permissions": [
+        "terminal",
+        "network",
+        "storage",
+        "notifications",
+        "clipboard        # ← téléphone : demande runtime",
+        "camera           # ← téléphone : demande runtime"
+      ],
+      "tags": [],
+      "category": "tools",
+      "path": "extensions/dev.panda.device",
+      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
+      "install": {
+        "method": "files"
+      },
+      "featured": true
     }
   ]
 }
