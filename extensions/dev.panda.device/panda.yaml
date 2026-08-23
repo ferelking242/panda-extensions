@@ -17,6 +17,7 @@ description: |
   5. Bouton ▶ Run : flutter run sur l'appareil (hot reload r/R)
 
 license: MIT
+featured: true
 repository: https://github.com/ferelking242/panda-extensions
 
 # ── Icône : lien externe OU fichier local (icon.svg / icon.png à côté) ──
