@@ -47,22 +47,6 @@ def parse_yaml_minimal(text: str) -> dict:
     return doc
 
 
-def parse_yaml_list(yaml_path: str, key: str) -> list:
-    """Lit une liste `- item` sous `<key>:` (ex: extensionDependencies)."""
-    out, inside = [], False
-    for line in open(yaml_path, encoding="utf-8"):
-        t = line.strip()
-        if t.startswith(f"{key}:"):
-            inside = True
-            continue
-        if inside:
-            if t.startswith("- ") and not t.startswith("- id:"):
-                out.append(t[2:].split("#")[0].strip())
-            elif not line.startswith((" ", "\t")) and t:
-                inside = False
-    return [x for x in out if x]
-
-
 def resolve_icon(ext_dir_rel: str, ext_path: str, manifest_icon) -> dict:
     # 1) fichier local prioritaire → servi en raw URL (pas dupliqué dans le repo)
     for name in ("icon.svg", "icon.png"):
@@ -103,33 +87,20 @@ def build() -> int:
 
         icon = resolve_icon(f"extensions/{ext_id}", ext_path, doc.get("icon"))
         rel = f"extensions/{ext_id}"
-        tags_raw = doc.get("tags")
-        tags = ([t.strip() for t in str(tags_raw).split(",") if t.strip()]
-                if isinstance(tags_raw, str) else [])
-        deps = parse_yaml_list(yaml_path, "extensionDependencies")
-
-        # ── Champs façon marketplace VS Code ──
-        # publisher : identité vérifiable ; versions : historique (latest
-        # d'abord) pour l'auto-update et l'install de version précise ;
-        # extensionDependencies : packs et chaînes de dépendances.
-        version = str(doc.get("version", "0.0.0"))
         entry = {
             "id": doc.get("id", ext_id),
             "name": doc.get("name", ext_id),
-            "version": version,
+            "version": doc.get("version", "0.0.0"),
             "author": doc.get("author"),
             "description": (doc.get("description") or "").strip().split("\n")[0],
             "icon": icon,
             "permissions": perms,
-            "tags": tags,
+            "tags": [],
             "category": doc.get("category", "tools"),
             "path": rel,
             "manifest": f"{RAW_BASE}/{rel}/panda.yaml",
             "install": {"method": "files"},
             "featured": bool(doc.get("featured")),
-            "publisher": doc.get("author"),
-            "extensionDependencies": deps,
-            "versions": [{"version": version, "path": rel}],
         }
         entries.append(entry)
         print(f"  ✓ {entry['id']}@{entry['version']}")
@@ -152,6 +123,12 @@ def build() -> int:
             {"id": "android", "name": "Android", "icon": "📱"},
         ],
     }
+
+    # Nettoyage des anciens shards (sinon des fichiers obsolètes traînent)
+    shards_dir = os.path.join(ROOT, "shards")
+    if os.path.isdir(shards_dir):
+        for f in os.listdir(shards_dir):
+            os.remove(os.path.join(shards_dir, f))
 
     # ── Sharding : support de milliers d'extensions ──
     #  - featured : les ~20 mises en avant restent DANS index.json (affichage
