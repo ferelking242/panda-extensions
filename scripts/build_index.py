@@ -100,7 +100,7 @@ def build() -> int:
             "path": rel,
             "manifest": f"{RAW_BASE}/{rel}/panda.yaml",
             "install": {"method": "files"},
-            "featured": False,
+            "featured": bool(doc.get("featured")),
         }
         entries.append(entry)
         print(f"  ✓ {entry['id']}@{entry['version']}")
@@ -122,8 +122,42 @@ def build() -> int:
             {"id": "ai", "name": "AI", "icon": "🤖"},
             {"id": "android", "name": "Android", "icon": "📱"},
         ],
-        "extensions": entries,
     }
+
+    # ── Sharding : support de milliers d'extensions ──
+    #  - featured : les ~20 mises en avant restent DANS index.json (affichage
+    #    immédiat de la home sans requêtes supplémentaires)
+    #  - le reste est découpé en shards de SHARD_SIZE, paginés à la demande
+    SHARD_SIZE = 500
+    featured = [e for e in entries if e.get("featured")][:20]
+    rest = [e for e in entries if e not in featured]
+
+    shards = []
+    for i in range(0, len(rest), SHARD_SIZE):
+        page = rest[i:i + SHARD_SIZE]
+        name = f"shards/extensions-{len(shards)}.json"
+        shard_path = os.path.join(ROOT, *name.split("/"))
+        os.makedirs(os.path.dirname(shard_path), exist_ok=True)
+        with open(shard_path, "w", encoding="utf-8") as f:
+            json.dump({"schema": "panda-registry-shard-v1", "offset": i,
+                       "count": len(page), "extensions": page},
+                      f, ensure_ascii=False)
+            f.write("\n")
+        shards.append({"id": name, "count": len(page),
+                       "url": f"{RAW_BASE}/{name}"})
+        print(f"  📄 shard {name}: {len(page)} extensions")
+
+    index["total"] = len(entries)
+    index["featured"] = featured
+    index["shards"] = {
+        "size": SHARD_SIZE,
+        "count": len(shards),
+        "pages": shards,
+    }
+    if not shards:
+        # petit registre : tout inline pour zéro requête supplémentaire
+        index["inline"] = entries
+
     out = os.path.join(ROOT, "index.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=2)
