@@ -1,0 +1,87 @@
+# panda.yaml — Extension manifest for Panda IDE
+# Format: panda-v1
+# Registry: ferelking242/panda-extensions
+
+id: dev.panda.device
+name: Panda Device
+version: "1.0.0"
+author: "Ferelking"
+description: |
+  Assistant de développement sur appareil — façon Shizuku.
+
+  1. Ouvre les Options développeur Android et guide le Débogage sans fil
+  2. Détecte le port d'appairage + capture le code à 6 chiffres
+     (notification d'aide comme Shizuku pendant la saisie)
+  3. Appaire et connecte adb automatiquement
+  4. Vérifie le SDK Flutter ; si absent → installation avec progression
+  5. Bouton ▶ Run : flutter run sur l'appareil (hot reload r/R)
+
+license: MIT
+repository: https://github.com/ferelking242/panda-extensions
+
+# ── Icône : lien externe OU fichier local (icon.svg / icon.png à côté) ──
+icon:
+  type: url
+  src: "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/assets/icons/device.svg"
+
+# Compatibility
+panda:
+  min_version: "1.0.0"
+  platforms:
+    - android
+
+# Activation
+activation:
+  events:
+    - onStartup
+
+# ── Permissions ──
+# terminal/network/storage : sandbox IDE (auto-accordées après consentement)
+# Les permissions TÉLÉPHONE (clipboard/camera/micro/...) déclenchent
+# une demande runtime Android via ExtensionPermissionManager.
+permissions:
+  - terminal
+  - network
+  - storage
+  - notifications
+  - clipboard        # ← téléphone : demande runtime
+  - camera           # ← téléphone : demande runtime
+
+# Contributions
+contributes:
+  commands:
+    - id: dev.panda.device.open
+      title: "Panda Device: Open Setup Wizard"
+      icon: "$(device-mobile)"
+      keybinding: "ctrl+shift+d"
+
+    - id: dev.panda.device.pair
+      title: "Panda Device: Pair (WiFi Debugging)"
+
+    - id: dev.panda.device.checkFlutter
+      title: "Panda Device: Check / Install Flutter SDK"
+
+    - id: dev.panda.device.run
+      title: "Panda Device: Run on Device"
+
+    - id: dev.panda.device.status
+      title: "Panda Device: Show Status"
+
+  views:
+    sidebar:
+      - id: dev.panda.device.panel
+        name: "Panda Device"
+        icon: "device-mobile"
+        widget: "lib/views/device_panel.dart"
+        default_visible: false
+
+  configuration:
+    dev.panda.device.flutterChannel:
+      type: string
+      default: "stable"
+      values: ["stable", "beta", "master"]
+      description: "Canal du SDK Flutter à installer"
+    dev.panda.device.flutterPath:
+      type: string
+      default: "/opt/flutter"
+      description: "Chemin d'installation du SDK Flutter dans le rootfs"
