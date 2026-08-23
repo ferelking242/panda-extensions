@@ -1,0 +1,87 @@
+# panda.yaml — Extension manifest for Panda IDE
+# Format: panda-v1
+# Registry: ferelking242/panda-extensions
+
+id: ai.panda.gateway
+name: Panda AI
+version: "1.0.0"
+author: "Ferelking"
+description: |
+  Panda AI — transforme tes comptes ChatGPT, Claude, Gemini, DeepSeek,
+  Grok, Mistral, Qwen et Kimi en API OpenAI-compatible.
+
+  1. Installe le gateway Python dans le rootfs (une fois)
+  2. Démarre le serveur local :8000 en mode WebView Android
+  3. Chaque fournisseur vit dans son propre onglet du navigateur intégré
+     (sessions isolées — plusieurs IA simultanément)
+  4. OpenAI-compatible : /v1/chat/completions + /v1/responses
+
+license: MIT
+featured: true
+category: ai
+repository: https://github.com/ferelking242/Panda-Ai
+
+# ── Icône : fichier local icon.svg (servi en raw URL par le registre) ──
+icon:
+  type: url
+  src: "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
+
+# Compatibility
+panda:
+  min_version: "1.0.0"
+  platforms:
+    - android
+
+# Activation
+activation:
+  events:
+    - onStartup
+
+# ── Permissions ──
+permissions:
+  - terminal
+  - network
+  - storage
+  - notifications
+
+# Contributions
+contributes:
+  commands:
+    - id: ai.panda.gateway.install
+      title: "Panda AI: Install / Update Gateway"
+
+    - id: ai.panda.gateway.start
+      title: "Panda AI: Start Gateway"
+      keybinding: "ctrl+shift+a"
+
+    - id: ai.panda.gateway.stop
+      title: "Panda AI: Stop Gateway"
+
+    - id: ai.panda.gateway.status
+      title: "Panda AI: Show Status"
+
+    - id: ai.panda.gateway.openSession
+      title: "Panda AI: Open Provider Session in Browser"
+
+  views:
+    sidebar:
+      - id: ai.panda.gateway.panel
+        name: "Panda AI"
+        icon: "auto-awesome"
+        widget: "lib/views/gateway_panel.dart"
+        default_visible: false
+
+  configuration:
+    ai.panda.gateway.provider:
+      type: string
+      default: "chatgpt"
+      values: [chatgpt, claude, gemini, deepseek, grok, mistral, qwen, kimi]
+      description: "Fournisseur principal au démarrage"
+    ai.panda.gateway.providerChain:
+      type: string
+      default: ""
+      description: "Chaîne de fallback (ex: chatgpt,claude,gemini) — une session par fournisseur"
+    ai.panda.gateway.apiToken:
+      type: string
+      default: ""
+      description: "Token API pnd_… (vide = pas d'auth)"
