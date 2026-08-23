@@ -31,10 +31,16 @@ panda:
   platforms:
     - android
 
-# Activation
+# Activation paresseuse façon VS Code : le code ne se charge QUE quand
+# l'utilisateur déclenche une commande ou ouvre la vue. Rien au démarrage.
 activation:
   events:
-    - onStartup
+    - onCommand:dev.panda.device.open
+    - onCommand:dev.panda.device.pair
+    - onCommand:dev.panda.device.checkFlutter
+    - onCommand:dev.panda.device.run
+    - onCommand:dev.panda.device.status
+    - onView:dev.panda.device.panel
 
 # ── Permissions ──
 # terminal/network/storage : sandbox IDE (auto-accordées après consentement)
