@@ -1,6 +1,6 @@
 {
   "schema": "panda-registry-v1",
-  "updatedAt": "2026-08-29T01:33:00Z",
+  "updatedAt": "2026-08-29T02:00:00Z",
   "registry": {
     "name": "Panda Extensions Registry",
     "url": "https://github.com/ferelking242/panda-extensions",
@@ -9,10 +9,7 @@
   },
   "categories": [
     { "id": "tools", "name": "Tools", "icon": "🔧" },
-    { "id": "themes", "name": "Themes", "icon": "🎨" },
-    { "id": "languages", "name": "Languages", "icon": "💻" },
-    { "id": "ai", "name": "AI", "icon": "🤖" },
-    { "id": "android", "name": "Android", "icon": "📱" }
+    { "id": "ai", "name": "AI", "icon": "🤖" }
   ],
   "total": 2,
   "featured": [
@@ -21,7 +18,7 @@
       "name": "Panda AI",
       "version": "1.1.0",
       "versions": [
-        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.1.0", "date": "2026-08-29", "engine": "vsix" },
         { "version": "1.0.0", "date": "2026-08-23" }
       ],
       "author": "Ferelking",
@@ -34,8 +31,7 @@
       "tags": ["ai", "chatgpt", "claude", "gateway", "api"],
       "category": "ai",
       "path": "extensions/ai.panda.gateway",
-      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
-      "install": { "method": "files" },
+      "install": { "method": "vsix" },
       "featured": true
     },
     {
@@ -43,7 +39,7 @@
       "name": "Panda Device",
       "version": "1.1.0",
       "versions": [
-        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.1.0", "date": "2026-08-29", "engine": "vsix" },
         { "version": "1.0.0", "date": "2026-08-23" }
       ],
       "author": "Ferelking",
@@ -56,56 +52,10 @@
       "tags": ["adb", "android", "device", "flutter", "debugging"],
       "category": "tools",
       "path": "extensions/dev.panda.device",
-      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
-      "install": { "method": "files" },
+      "install": { "method": "vsix" },
       "featured": true
     }
   ],
   "shards": { "size": 500, "count": 0, "pages": [] },
-  "inline": [
-    {
-      "id": "ai.panda.gateway",
-      "name": "Panda AI",
-      "version": "1.1.0",
-      "versions": [
-        { "version": "1.1.0", "date": "2026-08-29" },
-        { "version": "1.0.0", "date": "2026-08-23" }
-      ],
-      "author": "Ferelking",
-      "description": "AI Gateway — Serveur Python (FastAPI) dans le terminal PRoot. Connecte ChatGPT, Claude ou Panda Open Gateway. Dashboard intégré.",
-      "icon": {
-        "type": "url",
-        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
-      },
-      "permissions": ["terminal", "network", "storage", "notifications"],
-      "tags": ["ai", "chatgpt", "claude", "gateway", "api"],
-      "category": "ai",
-      "path": "extensions/ai.panda.gateway",
-      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
-      "install": { "method": "files" },
-      "featured": true
-    },
-    {
-      "id": "dev.panda.device",
-      "name": "Panda Device",
-      "version": "1.1.0",
-      "versions": [
-        { "version": "1.1.0", "date": "2026-08-29" },
-        { "version": "1.0.0", "date": "2026-08-23" }
-      ],
-      "author": "Ferelking",
-      "description": "Appairage WiFi — connecte ton téléphone via adb pair/connect. Saisie manuelle du code. Gestion Flutter SDK.",
-      "icon": {
-        "type": "url",
-        "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
-      },
-      "permissions": ["terminal", "network", "storage", "notifications", "clipboard"],
-      "tags": ["adb", "android", "device", "flutter", "debugging"],
-      "category": "tools",
-      "path": "extensions/dev.panda.device",
-      "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
-      "install": { "method": "files" },
-      "featured": true
-    }
-  ]
+  "inline": []
 }
