@@ -4,7 +4,7 @@
 
 id: dev.panda.device
 name: Panda Device
-version: "1.0.0"
+version: "1.1.0"
 author: "Ferelking"
 description: |
   Assistant de développement sur appareil — façon Shizuku.
@@ -23,7 +23,7 @@ repository: https://github.com/ferelking242/panda-extensions
 # ── Icône : lien externe OU fichier local (icon.svg / icon.png à côté) ──
 icon:
   type: url
-  src: "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/assets/icons/device.svg"
+  src: "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
 
 # Compatibility
 panda:
