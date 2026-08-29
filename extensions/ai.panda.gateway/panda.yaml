@@ -4,7 +4,7 @@
 
 id: ai.panda.gateway
 name: Panda AI
-version: "1.0.0"
+version: "1.1.0"
 author: "Ferelking"
 description: |
   Panda AI — transforme tes comptes ChatGPT, Claude, Gemini, DeepSeek,
