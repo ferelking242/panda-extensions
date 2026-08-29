@@ -1,6 +1,6 @@
 {
   "schema": "panda-registry-v1",
-  "updatedAt": "2026-08-23T23:26:19Z",
+  "updatedAt": "2026-08-29T01:33:00Z",
   "registry": {
     "name": "Panda Extensions Registry",
     "url": "https://github.com/ferelking242/panda-extensions",
@@ -8,143 +8,103 @@
     "apiBase": "https://api.github.com/repos/ferelking242/panda-extensions/contents"
   },
   "categories": [
-    {
-      "id": "tools",
-      "name": "Tools",
-      "icon": "🔧"
-    },
-    {
-      "id": "themes",
-      "name": "Themes",
-      "icon": "🎨"
-    },
-    {
-      "id": "languages",
-      "name": "Languages",
-      "icon": "💻"
-    },
-    {
-      "id": "ai",
-      "name": "AI",
-      "icon": "🤖"
-    },
-    {
-      "id": "android",
-      "name": "Android",
-      "icon": "📱"
-    }
+    { "id": "tools", "name": "Tools", "icon": "🔧" },
+    { "id": "themes", "name": "Themes", "icon": "🎨" },
+    { "id": "languages", "name": "Languages", "icon": "💻" },
+    { "id": "ai", "name": "AI", "icon": "🤖" },
+    { "id": "android", "name": "Android", "icon": "📱" }
   ],
   "total": 2,
   "featured": [
     {
       "id": "ai.panda.gateway",
       "name": "Panda AI",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "versions": [
+        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.0.0", "date": "2026-08-23" }
+      ],
       "author": "Ferelking",
-      "description": "|",
+      "description": "AI Gateway — Serveur Python (FastAPI) dans le terminal PRoot. Connecte ChatGPT, Claude ou Panda Open Gateway. Dashboard intégré.",
       "icon": {
         "type": "url",
         "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
       },
-      "permissions": [
-        "terminal",
-        "network",
-        "storage",
-        "notifications"
-      ],
-      "tags": [],
+      "permissions": ["terminal", "network", "storage", "notifications"],
+      "tags": ["ai", "chatgpt", "claude", "gateway", "api"],
       "category": "ai",
       "path": "extensions/ai.panda.gateway",
       "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
-      "install": {
-        "method": "files"
-      },
+      "install": { "method": "files" },
       "featured": true
     },
     {
       "id": "dev.panda.device",
       "name": "Panda Device",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "versions": [
+        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.0.0", "date": "2026-08-23" }
+      ],
       "author": "Ferelking",
-      "description": "|",
+      "description": "Appairage WiFi — connecte ton téléphone via adb pair/connect. Saisie manuelle du code. Gestion Flutter SDK.",
       "icon": {
         "type": "url",
         "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
       },
-      "permissions": [
-        "terminal",
-        "network",
-        "storage",
-        "notifications",
-        "clipboard        # ← téléphone : demande runtime",
-        "camera           # ← téléphone : demande runtime"
-      ],
-      "tags": [],
+      "permissions": ["terminal", "network", "storage", "notifications", "clipboard"],
+      "tags": ["adb", "android", "device", "flutter", "debugging"],
       "category": "tools",
       "path": "extensions/dev.panda.device",
       "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
-      "install": {
-        "method": "files"
-      },
+      "install": { "method": "files" },
       "featured": true
     }
   ],
-  "shards": {
-    "size": 500,
-    "count": 0,
-    "pages": []
-  },
+  "shards": { "size": 500, "count": 0, "pages": [] },
   "inline": [
     {
       "id": "ai.panda.gateway",
       "name": "Panda AI",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "versions": [
+        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.0.0", "date": "2026-08-23" }
+      ],
       "author": "Ferelking",
-      "description": "|",
+      "description": "AI Gateway — Serveur Python (FastAPI) dans le terminal PRoot. Connecte ChatGPT, Claude ou Panda Open Gateway. Dashboard intégré.",
       "icon": {
         "type": "url",
         "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/icon.svg"
       },
-      "permissions": [
-        "terminal",
-        "network",
-        "storage",
-        "notifications"
-      ],
-      "tags": [],
+      "permissions": ["terminal", "network", "storage", "notifications"],
+      "tags": ["ai", "chatgpt", "claude", "gateway", "api"],
       "category": "ai",
       "path": "extensions/ai.panda.gateway",
       "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/ai.panda.gateway/panda.yaml",
-      "install": {
-        "method": "files"
-      },
+      "install": { "method": "files" },
       "featured": true
     },
     {
       "id": "dev.panda.device",
       "name": "Panda Device",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "versions": [
+        { "version": "1.1.0", "date": "2026-08-29" },
+        { "version": "1.0.0", "date": "2026-08-23" }
+      ],
       "author": "Ferelking",
-      "description": "|",
+      "description": "Appairage WiFi — connecte ton téléphone via adb pair/connect. Saisie manuelle du code. Gestion Flutter SDK.",
       "icon": {
         "type": "url",
         "src": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/icon.svg"
       },
-      "permissions": [
-        "terminal",
-        "network",
-        "storage",
-        "notifications",
-        "clipboard        # ← téléphone : demande runtime",
-        "camera           # ← téléphone : demande runtime"
-      ],
-      "tags": [],
+      "permissions": ["terminal", "network", "storage", "notifications", "clipboard"],
+      "tags": ["adb", "android", "device", "flutter", "debugging"],
       "category": "tools",
       "path": "extensions/dev.panda.device",
       "manifest": "https://raw.githubusercontent.com/ferelking242/panda-extensions/main/extensions/dev.panda.device/panda.yaml",
-      "install": {
-        "method": "files"
-      },
+      "install": { "method": "files" },
       "featured": true
     }
   ]
